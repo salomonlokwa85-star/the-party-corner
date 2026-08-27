@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Party Corner — Tipi Party & Pyjama Party pour enfants</title>
+<meta name="description" content="Anniversaires pyjama clés en main, installés directement chez vous. Tipis, thèmes, packs premium et animations sur devis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#1f6b6b;
+    --teal-dark:#123f3f;
+    --teal-light:#e4efee;
+    --coral:#d98a8a;
+    --coral-dark:#c06b6b;
+    --gold:#c9a04e;
+    --gold-light:#e9d6a8;
+    --cream:#fbf5ea;
+    --cream-2:#f4e9d6;
+    --ink:#2a2a33;
+    --ink-soft:#5b5a63;
+    --white:#fffdf8;
+    --radius-lg: 28px 8px 28px 8px;
+    --radius-md: 20px 6px 20px 6px;
+    --shadow-soft: 0 18px 40px -18px rgba(20,45,45,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; font-family:'Work Sans', sans-serif; color:var(--ink); background:var(--cream); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; margin:0 0 .4em 0; font-weight:600; line-height:1.08; letter-spacing:-0.01em; }
+  p{ line-height:1.65; color:var(--ink-soft); margin:0 0 1em 0;}
+  a{ color:inherit; }
+  img{max-width:100%; display:block;}
+  .wrap{ max-width:1160px; margin:0 auto; padding:0 28px; }
+  section{ position:relative; }
+
+  .dot{ position:absolute; border-radius:50%; }
+
+  header{ position:sticky; top:0; z-index:50; background:rgba(251,245,234,0.92); backdrop-filter: blur(8px); border-bottom:1px solid rgba(31,107,107,0.12); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 28px; max-width:1160px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .brand-text{ display:flex; flex-direction:column; line-height:1.1; }
+  .brand-text .name{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; color:var(--teal-dark); }
+  .brand-text .tag{ font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--coral-dark); }
+  nav.links{ display:flex; align-items:center; gap:22px; }
+  nav.links a{ text-decoration:none; font-size:.88rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0; white-space:nowrap; }
+  nav.links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--coral); transition:width .25s ease; }
+  nav.links a:hover::after{ width:100%; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'Work Sans', sans-serif; font-weight:600; font-size:.9rem; padding:12px 24px; border-radius:999px; text-decoration:none; border:2px solid transparent; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+  .btn-primary{ background:var(--teal); color:var(--white); box-shadow:var(--shadow-soft); }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-outline{ background:transparent; border-color:var(--teal); color:var(--teal-dark); }
+  .btn-outline:hover{ background:var(--teal); color:var(--white); }
+  .btn-gold{ background:var(--gold); color:var(--teal-dark); box-shadow:var(--shadow-soft); }
+  .btn-gold:hover{ transform:translateY(-2px); }
+  .btn-lg{ padding:16px 34px; font-size:1rem; }
+  .nav-cta{ display:flex; }
+  .burger{ display:none; background:none; border:none; cursor:pointer; }
+  .burger span{ display:block; width:26px; height:2px; background:var(--teal-dark); margin:5px 0; }
+  .mobile-nav{ display:none; flex-direction:column; gap:2px; background:var(--white); border-top:1px solid rgba(31,107,107,0.12); }
+  .mobile-nav.open{ display:flex; }
+  .mobile-nav a{ padding:14px 28px; text-decoration:none; color:var(--ink); font-weight:500; border-bottom:1px solid rgba(31,107,107,0.06); }
+
+  /* hero */
+  .hero{ padding:64px 0 90px; position:relative; overflow:hidden; background: radial-gradient(circle at 85% 10%, rgba(201,160,78,0.16), transparent 55%), radial-gradient(circle at 8% 85%, rgba(217,138,138,0.16), transparent 45%); }
+  .hero-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:50px; align-items:center; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:.76rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--coral-dark); background:rgba(217,138,138,0.14); padding:7px 16px; border-radius:999px; margin-bottom:16px; }
+  .hero h1{ font-size:clamp(2rem, 3.6vw, 3rem); color:var(--teal-dark); }
+  .hero .accroche{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:1.15rem; color:var(--coral-dark); margin:10px 0 18px; }
+  .hero p.lead{ font-size:1.02rem; max-width:520px; margin-bottom:26px; }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-photo{ position:relative; border-radius: var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-soft); }
+  .hero-photo img{ width:100%; height:420px; object-fit:cover; }
+  .hero-photo .cap{ position:absolute; left:16px; bottom:16px; background:rgba(18,63,63,0.85); color:var(--white); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; padding:8px 14px; border-radius:999px; }
+
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 40px; }
+  .section-head .kicker{ color:var(--coral-dark); font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:.74rem; }
+  .section-head h2{ color:var(--teal-dark); font-size:clamp(1.6rem,3vw,2.3rem); }
+  .section-head.left{ text-align:left; margin:0 0 34px; }
+
+  /* pack essentiel */
+  .essentiel{ padding:80px 0; background:var(--white); }
+  .essentiel-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+  .essentiel-photo{ border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-soft); }
+  .essentiel-photo img{ width:100%; height:380px; object-fit:cover; }
+  .badge{ display:inline-block; background:var(--coral); color:var(--white); font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:14px; }
+  .check-list{ list-style:none; margin:18px 0 24px; padding:0; display:grid; gap:10px; }
+  .check-list li{ display:flex; align-items:flex-start; gap:10px; font-size:.95rem; color:var(--ink); }
+  .check-list li svg{ flex:0 0 auto; margin-top:3px; }
+  .theme-chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .theme-chip{ background:var(--teal-light); color:var(--teal-dark); font-size:.86rem; font-weight:600; padding:8px 16px; border-radius:999px; }
+
+  /* premium packs */
+  .premium{ padding:80px 0; background:var(--cream-2); }
+  .premium-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .premium-card{ background:var(--white); border-radius:var(--radius-md); overflow:hidden; box-shadow:0 14px 30px -18px rgba(20,45,45,0.25); transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column; }
+  .premium-card:hover{ transform:translateY(-6px); box-shadow:0 22px 40px -18px rgba(20,45,45,0.35); }
+  .premium-card img{ width:100%; height:150px; object-fit:cover; }
+  .premium-body{ padding:20px 18px 24px; flex:1; display:flex; flex-direction:column; }
+  .premium-body h3{ font-size:1.05rem; color:var(--teal-dark); margin-bottom:8px; }
+  .premium-body ul{ list-style:none; padding:0; margin:0 0 14px; display:grid; gap:6px; flex:1; }
+  .premium-body ul li{ font-size:.85rem; color:var(--ink-soft); display:flex; gap:6px; }
+  .premium-body ul li::before{ content:"+"; color:var(--gold); font-weight:700; }
+  .premium-tag{ font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--coral-dark); margin-bottom:6px; }
+
+  /* options */
+  .options{ padding:80px 0; background:var(--white); }
+  .option-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .option-card{ padding:20px 18px; border-radius:var(--radius-md); background:var(--cream); border:1px solid rgba(31,107,107,0.1); text-align:center; }
+  .option-card .price{ font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--teal-dark); margin:6px 0 4px; }
+  .option-card .name{ font-size:.86rem; color:var(--ink); font-weight:500; }
+  .option-card .unit{ font-size:.72rem; color:var(--ink-soft); }
+
+  /* formules pricing table */
+  .formules{ padding:80px 0; background:var(--teal-dark); color:var(--white); }
+  .formules .section-head .kicker{ color:var(--gold-light); }
+  .formules .section-head h2{ color:var(--white); }
+  .formules .section-head p{ color:rgba(255,253,248,0.78); }
+  .price-table{ width:100%; border-collapse:separate; border-spacing:0 10px; }
+  .price-table th{ text-align:left; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-light); padding:0 20px 8px; font-weight:600; }
+  .price-table td{ background:rgba(255,253,248,0.06); padding:16px 20px; font-size:.98rem; }
+  .price-table tr td:first-child{ border-radius:14px 0 0 14px; font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; }
+  .price-table tr td:last-child{ border-radius:0 14px 14px 0; text-align:right; font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--gold-light); }
+  .price-table tr:hover td{ background:rgba(255,253,248,0.12); }
+  .price-note{ font-size:.82rem; color:rgba(255,253,248,0.65); margin-top:10px; }
+  .delivery-box{ margin-top:36px; background:rgba(255,253,248,0.08); border:1px solid rgba(255,253,248,0.15); border-radius:var(--radius-md); padding:24px 28px; display:flex; gap:34px; flex-wrap:wrap; }
+  .delivery-box div{ flex:1; min-width:220px; }
+  .delivery-box strong{ display:block; color:var(--gold-light); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; }
+  .delivery-box span{ font-size:.94rem; color:rgba(255,253,248,0.9); }
+
+  /* booking steps */
+  .booking{ padding:80px 0; background:var(--cream); }
+  .booking-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .booking-step{ padding:26px 22px; background:var(--white); border-radius:var(--radius-md); border:1px solid rgba(31,107,107,0.1); }
+  .booking-step .num{ width:36px; height:36px; border-radius:50%; background:var(--teal); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; margin-bottom:14px; }
+  .booking-step h3{ font-size:1rem; color:var(--teal-dark); margin-bottom:6px; }
+  .booking-step p{ font-size:.88rem; margin:0; }
+
+  /* gallery */
+  .gallery{ padding:80px 0; background:var(--white); }
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:14px; }
+  .gallery-grid > div{ border-radius:16px; overflow:hidden; }
+  .gallery-grid img{ width:100%; height:100%; object-fit:cover; }
+  .gallery-grid > div:nth-child(1){ grid-column:span 2; grid-row:span 2; }
+  .gallery-placeholder{ height:100%; width:100%; background: repeating-linear-gradient(135deg, rgba(31,107,107,0.08) 0 10px, rgba(31,107,107,0.03) 10px 20px), var(--cream); border:1.5px dashed rgba(31,107,107,0.35); display:flex; align-items:center; justify-content:center; text-align:center; color:var(--teal-dark); font-size:.76rem; font-weight:600; letter-spacing:.04em; padding:10px; }
+
+  /* FAQ */
+  .faq{ padding:80px 0; background:var(--white); }
+  .faq-list{ max-width:760px; margin:0 auto; display:grid; gap:12px; }
+  .faq-item{ background:var(--cream); border-radius:16px; border:1px solid rgba(31,107,107,0.1); overflow:hidden; }
+  .faq-item summary{ cursor:pointer; padding:18px 22px; font-weight:600; color:var(--teal-dark); list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:.98rem; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; font-size:1.3rem; color:var(--gold); font-weight:400; }
+  .faq-item[open] summary::after{ content:"–"; }
+  .faq-item .faq-a{ padding:0 22px 20px; font-size:.9rem; color:var(--ink-soft); }
+
+  /* final CTA */
+  .cta-banner{ padding:70px 0; background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:var(--white); text-align:center; }
+  .cta-banner h2{ color:var(--white); font-size:clamp(1.6rem,3vw,2.4rem); }
+  .cta-banner p{ color:rgba(255,253,248,0.82); max-width:480px; margin:0 auto 26px; }
+
+  /* contact */
+  .contact{ padding:80px 0 100px; background:var(--cream); }
+  .contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:50px; }
+  .contact-info h2{ color:var(--teal-dark); font-size:clamp(1.6rem,3vw,2.1rem); }
+  .info-list{ list-style:none; padding:0; margin:22px 0; display:grid; gap:16px; }
+  .info-list li{ display:flex; gap:14px; align-items:flex-start; }
+  .info-list .ico{ width:38px; height:38px; border-radius:50%; background:var(--teal); color:var(--white); display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .info-list strong{ display:block; font-size:.76rem; text-transform:uppercase; letter-spacing:.08em; color:var(--coral-dark); }
+  .info-list span{ font-size:.94rem; color:var(--ink); }
+  .placeholder-txt{ color:#b04a4a; font-style:italic; }
+  .form-card{ background:var(--white); border-radius:var(--radius-lg); padding:34px; box-shadow:var(--shadow-soft); }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field{ margin-bottom:14px; }
+  .field label{ display:block; font-size:.8rem; font-weight:600; margin-bottom:6px; color:var(--teal-dark); }
+  .field input, .field select, .field textarea{ width:100%; padding:11px 14px; border-radius:12px; border:1.5px solid rgba(31,107,107,0.25); font-family:'Work Sans',sans-serif; font-size:.92rem; background:var(--cream); color:var(--ink); }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--teal); }
+  .field textarea{ resize:vertical; min-height:90px; }
+  .form-submit{ width:100%; justify-content:center; margin-top:6px; }
+  .form-note{ font-size:.76rem; color:var(--ink-soft); margin-top:10px; text-align:center; }
+
+  footer{ background:var(--teal-dark); color:rgba(255,253,248,0.85); padding:46px 0 24px; }
+  .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:28px; margin-bottom:30px; }
+  .footer-brand{ display:flex; align-items:center; gap:12px; }
+  .footer-brand .name{ font-family:'Fraunces',serif; font-weight:600; color:var(--white); }
+  .footer-links{ display:flex; gap:34px; flex-wrap:wrap; }
+  .footer-links div strong{ display:block; font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; color:var(--gold-light); margin-bottom:10px; }
+  .footer-links a{ display:block; text-decoration:none; color:rgba(255,253,248,0.78); font-size:.88rem; margin-bottom:8px; }
+  .footer-links a:hover{ color:var(--white); }
+  .footer-bottom{ border-top:1px solid rgba(255,253,248,0.15); padding-top:18px; font-size:.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:rgba(255,253,248,0.6); }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.show{ opacity:1; transform:translateY(0); }
+
+  @media (max-width: 980px){
+    .hero-grid, .essentiel-grid{ grid-template-columns:1fr; }
+    .hero-photo img, .essentiel-photo img{ height:280px; }
+    .premium-grid, .option-grid, .booking-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .gallery-grid > div:nth-child(1){ grid-column:span 2; grid-row:span 1; height:220px;}
+    nav.links{ display:none; }
+    .burger{ display:block; }
+    .delivery-box{ flex-direction:column; gap:16px; }
+  }
+  @media (max-width: 640px){
+    .form-row{ grid-template-columns:1fr; }
+    .premium-grid, .option-grid, .booking-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#accueil">
+      <svg width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex:0 0 auto;">
+        <path d="M32 6 L58 58 H6 Z" stroke="#1f6b6b" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M20 16 L44 50" stroke="#c9a04e" stroke-width="3" stroke-linecap="round"/>
+        <path d="M44 16 L20 50" stroke="#d98a8a" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">
+        <span class="name">The Party Corner</span>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#essentiel">Pack Essentiel</a>
+      <a href="#premium">Premium</a>
+      <a href="#options">Options</a>
+      <a href="#formules">Formules</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Réserver ma Tipi Party</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#essentiel">Pack Essentiel</a>
+    <a href="#premium">Premium</a>
+    <a href="#options">Options</a>
+    <a href="#formules">Formules</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Réserver</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="accueil">
+  <div class="dot" style="width:14px;height:14px;background:var(--coral);top:14%;left:4%;"></div>
+  <div class="dot" style="width:9px;height:9px;background:var(--gold);top:75%;left:2%;"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Parce que les plus beaux souvenirs commencent souvent à la maison</h1>
+      <p class="accroche">Transformez une simple soirée en une aventure magique.</p>
+      <p class="lead">Nos Tipi Party métamorphosent votre intérieur en un univers féerique où les rires, les confidences et les étoiles plein les yeux deviennent des souvenirs inoubliables. Vous choisissez le thème, nous nous occupons du reste.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-lg">Réserver ma Tipi Party</a>
+        <a href="#formules" class="btn btn-outline">Voir les formules & tarifs</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_ff07e9f0-3343-4689-9b51-29a72e150598.png" alt="Ambiance Tipi Party The Party Corner">
+      <span class="cap">Visuel d'ambiance — à remplacer par tes photos</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACK ESSENTIEL ================= -->
+<section class="essentiel reveal" id="essentiel">
+  <div class="wrap essentiel-grid">
+    <div class="essentiel-photo">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_20158d36-09ad-4633-b5c7-c4fc3d879617.png" alt="Pack Essentiel Tipi Party">
+    </div>
+    <div>
+      <span class="badge">La base de chaque Tipi Party</span>
+      <h2>Pack Essentiel</h2>
+      <p>Tout ce qu'il faut pour une nuit sous tipi réussie, installé et repris directement chez vous.</p>
+      <ul class="check-list">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Installation et reprise à domicile</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Jusqu'à <span class="placeholder-txt">[X]</span> tipis selon la formule choisie</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Matelas, draps, couverture, coussins</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Guirlande lumineuse</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Plateau petit-déjeuner</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--gold)"/><path d="M7 12.5l3 3 7-7" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Décoration selon le thème choisi</li>
+      </ul>
+      <div>
+        <strong style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--coral-dark);">Thèmes inclus</strong>
+        <div class="theme-chip-row">
+          <span class="theme-chip">🎉 Boum Party</span>
+          <span class="theme-chip">🍿 Home Cinéma</span>
+          <span class="theme-chip">🌸 Pink Dream</span>
+          <span class="theme-chip">💙 Blue Adventure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PREMIUM ================= -->
+<section class="premium reveal" id="premium">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Pour aller plus loin</div>
+      <h2>Les Packs Premium</h2>
+      <p>En plus du Pack Essentiel, choisissez une expérience à thème complète.</p>
+    </div>
+    <div class="premium-grid">
+      <div class="premium-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_72f60f34-50fe-48a7-a296-0ea1a8d79755.png" alt="Pack Spa Party">
+        <div class="premium-body">
+          <div class="premium-tag">Pack</div>
+          <h3>Spa Party</h3>
+          <ul>
+            <li>Bandeaux de soin</li>
+            <li>Masques visage</li>
+            <li>Ambiance cocooning</li>
+            <li>Petite décoration spa</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="justify-content:center;">Je réserve</a>
+        </div>
+      </div>
+      <div class="premium-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_40ba4ac4-bcde-4678-8295-b1caa0c9c16e.png" alt="Pack Slime Factory">
+        <div class="premium-body">
+          <div class="premium-tag">Pack</div>
+          <h3>Slime Factory</h3>
+          <ul>
+            <li>Kit Slime complet</li>
+            <li>Tablier ou protection</li>
+            <li>Décoration colorée</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="justify-content:center;">Je réserve</a>
+        </div>
+      </div>
+      <div class="premium-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_c7237aa8-d160-4732-a607-e166e1cdae38.png" alt="Pack Football Night">
+        <div class="premium-body">
+          <div class="premium-tag">Pack</div>
+          <h3>Football Night</h3>
+          <ul>
+            <li>Tipis thème football</li>
+            <li>Mini baby-foot</li>
+            <li>Déco football</li>
+            <li>Défis entre copains</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="justify-content:center;">Je réserve</a>
+        </div>
+      </div>
+      <div class="premium-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183214_b0f31b2a-6f91-44cc-a8de-6d41d6468c5e.png" alt="Pack Cinéma VIP">
+        <div class="premium-body">
+          <div class="premium-tag">Pack</div>
+          <h3>Cinéma VIP</h3>
+          <ul>
+            <li>Projecteur</li>
+            <li>Popcorn Box</li>
+            <li>Gobelets et pot à popcorn</li>
+            <li>Tickets de cinéma personnalisés</li>
+            <li>Guirlandes</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="justify-content:center;">Je réserve</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPTIONS ================= -->
+<section class="options reveal" id="options">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">À la carte</div>
+      <h2>Options supplémentaires</h2>
+      <p>Ajoutez une touche en plus à votre formule.</p>
+    </div>
+    <div class="option-grid">
+      <div class="option-card"><div class="name">✨ Kit Spa</div><div class="price">8 €</div><div class="unit">par enfant</div></div>
+      <div class="option-card"><div class="name">✨ Atelier Slime</div><div class="price">8 €</div><div class="unit">par enfant</div></div>
+      <div class="option-card"><div class="name">✨ Mini baby-foot</div><div class="price">7 €</div><div class="unit">forfait</div></div>
+      <div class="option-card"><div class="name">✨ Bonbons</div><div class="price">3 €</div><div class="unit">par enfant</div></div>
+      <div class="option-card"><div class="name">✨ Machine à Popcorn</div><div class="price">7 €</div><div class="unit">forfait</div></div>
+      <div class="option-card"><div class="name">✨ Barbe à papa</div><div class="price">10 €</div><div class="unit">forfait</div></div>
+      <div class="option-card"><div class="name">✨ Polaroid (10 photos)</div><div class="price">20 €</div><div class="unit">forfait</div></div>
+      <div class="option-card"><div class="name">✨ Layer cakes</div><div class="price">10 €</div><div class="unit">par enfant</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMULES / PRICING ================= -->
+<section class="formules reveal" id="formules">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Selon le nombre d'enfants</div>
+      <h2>Nos formules</h2>
+      <p>Des anniversaires pyjama clés en main, installés directement chez vous. Vous choisissez le thème, nous nous occupons du reste.</p>
+    </div>
+    <table class="price-table">
+      <thead>
+        <tr><th>Formule</th><th>Nombre de tipis</th><th style="text-align:right;">Prix conseillé</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🌙 Duo</td><td>2 tipis</td><td>99 €</td></tr>
+        <tr><td>✨ Petit Groupe</td><td>4 tipis</td><td>169 €</td></tr>
+        <tr><td>🎉 Classique</td><td>6 tipis</td><td>229 €</td></tr>
+        <tr><td>🦋 Grande Tribu</td><td>8 tipis</td><td>289 €</td></tr>
+        <tr><td>👑 Maxi Party</td><td>10 tipis</td><td>349 €</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">* Formules pensées pour les enfants à partir de 5 ans. Prix conseillés, ajustables selon options et thème choisi.</p>
+
+    <div class="delivery-box">
+      <div>
+        <strong>Zone desservie</strong>
+        <span>30 km autour de Bruxelles</span>
+      </div>
+      <div>
+        <strong>Livraison</strong>
+        <span>Offerte dans toute cette zone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING STEPS ================= -->
+<section class="booking reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">C'est simple</div>
+      <h2>Comment réserver</h2>
+    </div>
+    <div class="booking-grid">
+      <div class="booking-step">
+        <div class="num">1</div>
+        <h3>Choisissez votre formule</h3>
+        <p>Nombre d'enfants, thème et options en fonction de votre budget et de vos envies.</p>
+      </div>
+      <div class="booking-step">
+        <div class="num">2</div>
+        <h3>Envoyez votre demande</h3>
+        <p>Date souhaitée, ville et nombre d'enfants via le formulaire ci-dessous.</p>
+      </div>
+      <div class="booking-step">
+        <div class="num">3</div>
+        <h3>Confirmez avec un acompte</h3>
+        <p>Un acompte de 20% du montant valide votre réservation.</p>
+      </div>
+      <div class="booking-step">
+        <div class="num">4</div>
+        <h3>Profitez de la soirée</h3>
+        <p>On installe tout avant l'arrivée des invités et on reprend le lendemain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section class="gallery reveal" id="galerie">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Aperçu</div>
+      <h2>Galerie</h2>
+      <p>Visuels d'ambiance générés pour donner une direction — à remplacer par tes vraies photos d'installations dès que possible.</p>
+    </div>
+    <div class="gallery-grid">
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_219f764d-fb3f-4aea-a6c5-1a633a354c5e.png" alt="Ambiance nocturne Tipi Party"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_72f60f34-50fe-48a7-a296-0ea1a8d79755.png" alt="Pack Spa Party"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_40ba4ac4-bcde-4678-8295-b1caa0c9c16e.png" alt="Pack Slime Factory"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183115_c7237aa8-d160-4732-a607-e166e1cdae38.png" alt="Pack Football Night"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DlOPVdSQVUvq9lMAQ2BSDaFO5J/hf_20260805_183214_b0f31b2a-6f91-44cc-a8de-6d41d6468c5e.png" alt="Pack Cinéma VIP"></div>
+      <div><div class="gallery-placeholder">Photo à venir<br>Tes installations</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq reveal" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Questions fréquentes</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Comment se passe l'installation ?</summary>
+        <div class="faq-a">Nous installons votre Tipi Party à l'heure convenue, comptez environ 45 à 60 minutes selon la formule choisie. Tout est prêt avant l'arrivée des invités.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Combien de temps garde-t-on le matériel ?</summary>
+        <div class="faq-a">Le matériel reste chez vous jusqu'au lendemain. Nous revenons le reprendre en matinée ou dans l'après-midi, à convenir ensemble.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Une caution est-elle demandée ?</summary>
+        <div class="faq-a">Oui, une caution de 50 à 100 € est demandée à la réservation, selon la formule et les options choisies (montant plus élevé pour les formules avec suppléments, comme le pack Cinéma VIP avec projecteur). Elle est intégralement restituée après reprise du matériel en bon état.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Jusqu'où vous déplacez-vous ?</summary>
+        <div class="faq-a">Nous nous déplaçons dans un rayon de 30 km autour de Bruxelles, livraison offerte dans toute cette zone.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Comment confirmer ma réservation ?</summary>
+        <div class="faq-a">Un acompte de 20% du montant confirme votre date. Le solde est réglé le jour de l'installation.</div>
+      </details>
+      <details class="faq-item">
+        <summary>À partir de quel âge ?</summary>
+        <div class="faq-a">Nos formules sont pensées pour les enfants à partir de 5 ans.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="cta-banner reveal">
+  <div class="wrap">
+    <h2>Prêt(e) à transformer votre salon en camp de nuit féérique ?</h2>
+    <p>Choisissez votre formule, votre thème, et laissez-nous faire le reste.</p>
+    <a href="#contact" class="btn btn-gold btn-lg">Réserver ma Tipi Party</a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact reveal" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="kicker" style="color:var(--coral-dark);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;">Dernière étape</div>
+      <h2>Réservez votre Tipi Party</h2>
+      <p>Dites-nous la date, le nombre d'enfants et le thème souhaité — on revient vers vous avec une confirmation.</p>
+      <ul class="info-list">
+        <li>
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8 7 15 15 15l2-4-6-2-2 2c-2-1-4-3-5-5l2-2-2-6z" stroke="#fff" stroke-width="1.6"/></svg></span>
+          <span><strong>Téléphone</strong>Gladys : 0489 35 06 86<br>Steffi : 0470 38 05 94</span>
+        </li>
+        <li>
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M3 6l9 7 9-7" stroke="#fff" stroke-width="1.6"/></svg></span>
+          <span><strong>E-mail</strong>gladys.commuagency@gmail.com</span>
+        </li>
+        <li>
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="#fff" stroke-width="1.6"/></svg></span>
+          <span><strong>Zone desservie</strong>30 km autour de Bruxelles</span>
+        </li>
+        <li>
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></span>
+          <span><strong>Instagram</strong><span class="placeholder-txt">[À COMPLÉTER — @thepartycorner]</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <form id="devis-form" action="mailto:gladys.commuagency@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="field"><label for="nom">Nom complet</label><input type="text" id="nom" name="Nom" required></div>
+          <div class="field"><label for="tel">Téléphone</label><input type="tel" id="tel" name="Téléphone"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="Email" required></div>
+          <div class="field"><label for="date">Date souhaitée</label><input type="date" id="date" name="Date"></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="formule">Formule souhaitée</label>
+            <select id="formule" name="Formule">
+              <option value="">— Choisir —</option>
+              <option>Duo (2 tipis) — 99€</option>
+              <option>Petit Groupe (4 tipis) — 169€</option>
+              <option>Classique (6 tipis) — 229€</option>
+              <option>Grande Tribu (8 tipis) — 289€</option>
+              <option>Maxi Party (10 tipis) — 349€</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="theme">Thème / Pack souhaité</label>
+            <select id="theme" name="Thème">
+              <option value="">— Choisir —</option>
+              <option>Boum Party</option>
+              <option>Home Cinéma</option>
+              <option>Pink Dream</option>
+              <option>Blue Adventure</option>
+              <option>Pack Spa Party</option>
+              <option>Pack Slime Factory</option>
+              <option>Pack Football Night</option>
+              <option>Pack Cinéma VIP</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="Message" placeholder="Nombre d'enfants, ville, options souhaitées..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Réserver ma Tipi Party</button>
+        <p class="form-note">Ce formulaire ouvre votre messagerie pour envoyer la demande directement à The Party Corner.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex:0 0 auto;">
+          <path d="M32 6 L58 58 H6 Z" stroke="#fffdf8" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M20 16 L44 50" stroke="#e9d6a8" stroke-width="3" stroke-linecap="round"/>
+          <path d="M44 16 L20 50" stroke="#d98a8a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="name">The Party Corner</div>
+          <div style="font-size:.78rem;color:rgba(255,253,248,0.65);">Votre événement, notre style.</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div>
+          <strong>Navigation</strong>
+          <a href="#essentiel">Pack Essentiel</a>
+          <a href="#premium">Premium</a>
+          <a href="#formules">Formules</a>
+          <a href="#galerie">Galerie</a>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <a href="#contact">Réserver ma Tipi Party</a>
+          <a href="#" class="placeholder-txt">Instagram [À COMPLÉTER]</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Party Corner — tous droits réservés</span>
+      <span>Site créé avec ♥ pour des nuits sous tipi inoubliables</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
