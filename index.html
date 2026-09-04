@@ -211,7 +211,18 @@
     .form-row{ grid-template-columns:1fr; }
     .premium-grid, .option-grid, .booking-grid{ grid-template-columns:1fr; }
   }
-</style>
+
+  /* lightbox */
+  .gallery-grid img{ cursor:zoom-in; transition: transform .25s ease; }
+  .gallery-grid img:hover{ transform: scale(1.03); }
+  .lightbox{ position:fixed; inset:0; background:rgba(18,20,20,0.92); display:none; align-items:center; justify-content:center; z-index:999; padding:24px; }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:92vw; max-height:88vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+  .lightbox-close{ position:absolute; top:20px; right:28px; color:#fff; font-size:2.2rem; line-height:1; background:none; border:none; cursor:pointer; }
+  .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.12); border:none; color:#fff; font-size:1.8rem; width:48px; height:48px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .lightbox-prev{ left:20px; }
+  .lightbox-next{ right:20px; }
+
 </head>
 <body>
 
@@ -645,5 +656,40 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Precedent">&#8249;</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Suivant">&#8250;</button>
+</div>
+<script>
+  (function(){
+    const galleryImgs = Array.from(document.querySelectorAll('.gallery-grid img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    let currentIndex = 0;
+    function openLightbox(i){
+      currentIndex = i;
+      lightboxImg.src = galleryImgs[i].src;
+      lightboxImg.alt = galleryImgs[i].alt || '';
+      lightbox.classList.add('open');
+    }
+    function closeLightbox(){ lightbox.classList.remove('open'); }
+    function showNext(){ currentIndex = (currentIndex + 1) % galleryImgs.length; openLightbox(currentIndex); }
+    function showPrev(){ currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length; openLightbox(currentIndex); }
+    galleryImgs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxNext').addEventListener('click', showNext);
+    document.getElementById('lightboxPrev').addEventListener('click', showPrev);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  })();
+</script>
 </body>
 </html>
