@@ -218,6 +218,10 @@
   .field textarea{ resize:vertical; min-height:90px; }
   .form-submit{ width:100%; justify-content:center; margin-top:6px; }
   .form-note{ font-size:.76rem; color:var(--ink-soft); margin-top:10px; text-align:center; }
+  .form-status{ font-size:.86rem; margin:12px 0 0; text-align:center; display:none; padding:10px 14px; border-radius:12px; }
+  .form-status.show{ display:block; }
+  .form-status.ok{ background:var(--teal-light); color:var(--teal-dark); }
+  .form-status.err{ background:#fae7e7; color:#9c3c3c; }
 
   footer{ background:var(--teal-dark); color:rgba(255,253,248,0.85); padding:46px 0 24px; }
   .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:28px; margin-bottom:30px; }
@@ -594,19 +598,19 @@
     </div>
 
     <div class="form-card">
-      <form id="devis-form" action="mailto:gladys.commuagency@gmail.com" method="post" enctype="text/plain">
+      <form id="devis-form" novalidate>
         <div class="form-row">
-          <div class="field"><label for="nom">Nom complet</label><input type="text" id="nom" name="Nom" required></div>
-          <div class="field"><label for="tel">Téléphone</label><input type="tel" id="tel" name="Téléphone"></div>
+          <div class="field"><label for="nom">Nom complet</label><input type="text" id="nom" name="nom" required></div>
+          <div class="field"><label for="tel">Téléphone</label><input type="tel" id="tel" name="telephone"></div>
         </div>
         <div class="form-row">
-          <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="Email" required></div>
-          <div class="field"><label for="date">Date souhaitée</label><input type="date" id="date" name="Date"></div>
+          <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="email" required></div>
+          <div class="field"><label for="date">Date souhaitée</label><input type="date" id="date" name="date"></div>
         </div>
         <div class="form-row">
           <div class="field">
             <label for="formule">Formule souhaitée</label>
-            <select id="formule" name="Formule">
+            <select id="formule" name="formule">
               <option value="">— Choisir —</option>
               <option>Duo (2 tipis) — 99€</option>
               <option>Petit Groupe (4 tipis) — 169€</option>
@@ -618,7 +622,7 @@
           </div>
           <div class="field">
             <label for="theme">Thème / Pack souhaité</label>
-            <select id="theme" name="Thème">
+            <select id="theme" name="theme">
               <option value="">— Choisir —</option>
               <option>Boum Party</option>
               <option>Home Cinéma</option>
@@ -634,10 +638,15 @@
         </div>
         <div class="field">
           <label for="message">Votre message</label>
-          <textarea id="message" name="Message" placeholder="Nombre d'enfants, ville, options souhaitées..."></textarea>
+          <textarea id="message" name="message" placeholder="Nombre d'enfants, ville, options souhaitées..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary form-submit">Réserver ma Tipi Party</button>
-        <p class="form-note">Ce formulaire ouvre votre messagerie pour envoyer la demande directement à The Party Corner.</p>
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="website">Ne pas remplir</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="devis-submit">Réserver ma Tipi Party</button>
+        <p class="form-status" id="devis-status" role="status" aria-live="polite"></p>
+        <p class="form-note">Nous revenons vers vous avec une confirmation et un devis personnalisé.</p>
       </form>
     </div>
   </div>
@@ -689,6 +698,55 @@
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+  (function(){
+    const form = document.getElementById('devis-form');
+    const btn = document.getElementById('devis-submit');
+    const status = document.getElementById('devis-status');
+    if (!form) return;
+
+    function show(type, text){
+      status.textContent = text;
+      status.className = 'form-status show ' + type;
+    }
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      if (!data.nom || !data.email) {
+        show('err', 'Merci d\u2019indiquer au moins votre nom et votre e-mail.');
+        return;
+      }
+
+      btn.disabled = true;
+      const label = btn.textContent;
+      btn.textContent = 'Envoi en cours\u2026';
+      show('ok', 'Envoi de votre demande\u2026');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok && out.ok) {
+          form.reset();
+          show('ok', 'Merci \u00e0 vous ! Votre demande est bien re\u00e7ue. Nous revenons vers vous rapidement.');
+        } else {
+          show('err', (out.error || 'L\u2019envoi a \u00e9chou\u00e9.') + ' Vous pouvez aussi nous \u00e9crire \u00e0 gladys.commuagency@gmail.com');
+        }
+      } catch (err) {
+        show('err', 'L\u2019envoi a \u00e9chou\u00e9. Vous pouvez nous \u00e9crire \u00e0 gladys.commuagency@gmail.com');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = label;
+      }
+    });
+  })();
 </script>
 
 
